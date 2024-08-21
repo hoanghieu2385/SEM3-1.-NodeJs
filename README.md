@@ -14,3 +14,6 @@ tạo template nodejs express ()
 -> npm install
 
 chạy: npm start -> sẽ chạy ở http://localhost:3000/
+
+
+Buổi 2: 
