@@ -17,4 +17,11 @@ chạy: npm start -> sẽ chạy ở http://localhost:3000/
 
 
 Buổi 2:
+chạy lệnh: npm i mongoose
 connect db -> post / get bằng postman
+
+Buổi 3: Mô hình mvc
+b1: model: chuyển code user -> server js -> userModel
+b2: định nghĩa method
+b3: route
+
