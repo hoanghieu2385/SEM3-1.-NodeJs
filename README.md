@@ -16,4 +16,5 @@ tạo template nodejs express ()
 chạy: npm start -> sẽ chạy ở http://localhost:3000/
 
 
-Buổi 2: 
+Buổi 2:
+connect db -> post / get bằng postman

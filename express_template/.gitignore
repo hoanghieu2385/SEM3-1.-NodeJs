@@ -1,0 +1,2 @@
+# /node_modules/*
+# cách này sẽ giúp không đẩy các file trong node_modules lên git
