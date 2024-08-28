@@ -40,3 +40,5 @@ dùng bootstrap: + cách 1 dùng link
                 + cách 2 sài lệnh cài thẳng vào bằng lệnh: npm install bootstrap@5.3.3
 
 ****** NÊN SÀI BOOTSTRAP BẰNG LINK !!!!!!!!!!
+
+Buổi 5:
