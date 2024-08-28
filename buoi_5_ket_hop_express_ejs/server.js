@@ -1,7 +1,7 @@
-const app = require('./app.js')
+const app = require('./app')
 const mongoose = require('mongoose');
 const express = require('express')
-// const app = express();
+    // const app = express();
 app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/')
@@ -13,8 +13,10 @@ mongoose.connect('mongodb://localhost:27017/')
         console.log("Connection fail")
     })
 
+{
+    app.listen(3000, () => {
+        console.log(`Server listening on ${3000}`)
+        console.log("\nhttp://localhost:3000/")
+    })
 
-app.listen(9000, () => {
-    console.log(`Server listening on ${9000}`)
-    console.log("\nhttp://localhost:9000/")
-});
+};

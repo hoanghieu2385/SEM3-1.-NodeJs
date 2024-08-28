@@ -18,12 +18,14 @@ exports.createUser = async (req, res) => {
 
 exports.getUsers = async (req, res) => {
     try {
-        const users = await User.find()
-        res.render('user', {users} )
+        const users = await User.find();
+        console.log('Users found:', users);
+        res.render('user/index', { users: users });
     } catch (err) {
-        res.status(500).json({
+        console.error('Error retrieving users:', err);
+        res.status(500).render('error', {
             message: 'Error retrieving users',
-            error: err.message
-        })
+            error: err
+        });
     }
 }
