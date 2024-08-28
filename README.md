@@ -42,3 +42,11 @@ dùng bootstrap: + cách 1 dùng link
 ****** NÊN SÀI BOOTSTRAP BẰNG LINK !!!!!!!!!!
 
 Buổi 5:
+Kết hợp bài học buổi 3 + 4 (làm trong file b5_ket_hop_express_ejs)
+
+các bước:
++ app.js đổi    app.set('view engine', 'jade');   --->   app.set('view engine', 'ejs');
++ tạo trong folder view: 
+    - error.ejs để hiển thị lỗi
+    - index.ejs
+
