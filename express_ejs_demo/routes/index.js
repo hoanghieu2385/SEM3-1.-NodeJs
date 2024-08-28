@@ -11,7 +11,8 @@ router.get('/', function (req, res, next) {
 
   // 'index' ở đây là tên file, user là hàm tạo ở trên
   // res.render('index', user)
-  //Cach 2
+  //Cach 2:
+  // Tạo một đối tượng mới với một thuộc tính user và gán giá trị của biến user cho nó. khi gọi phải  <%= user.name %> nếu không thì ko in ra được
   // res.render('index', {user:user})
 
   var listUser = [{ name: 'Hieu 1', address: "HaNoi1" },
