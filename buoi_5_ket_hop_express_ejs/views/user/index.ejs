@@ -32,20 +32,19 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <% users.forEach(function(user) { %>
+                        <% users.forEach(user => { %>
 
-                        <tr>
-                            <th scope="row" >
-                                <%= user.id %>
-                            </th>
-                            <td>
-                                <%= user.username %>
-                            </td>
-                            <td>
-                                <%= user.fullname %>
-                            </td>
-                        </tr>
-
+                            <tr>
+                                <th scope="row" >
+                                    <%= user.id %>
+                                </th>
+                                <td>
+                                    <%= user.username %>
+                                </td>
+                                <td>
+                                    <%= user.fullname %>
+                                </td>
+                            </tr>
                 </tbody>
                 <% }); %>
             </table>
