@@ -18,5 +18,8 @@ const userSchema = new mongoose.Schema({
 
 // Tạo Model
 const User = mongoose.model('User', userSchema);
+// nếu muốn chỉ định tới table cụ thể thì thêm:
+// const User = mongoose.model('User', userSchema, 'tên table cụ thể');
+
 
 module.exports = User
