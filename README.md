@@ -39,6 +39,9 @@ cấu hình chọn ejs trong app.js sửa app.set('view engine', 'jade'); ---> a
 dùng bootstrap: + cách 1 dùng link
                 + cách 2 sài lệnh cài thẳng vào bằng lệnh: npm install bootstrap@5.3.3
 
+nếu sài bằng cách 2 thì trong app.js cần thêm lệnh mới có thể sài được:
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+
 ****** NÊN SÀI BOOTSTRAP BẰNG LINK !!!!!!!!!!
 
 Buổi 5:
@@ -56,3 +59,4 @@ các bước:
     - error.ejs (để hiển thị lỗi)
     - index.ejs
 
+Buổi 6:
