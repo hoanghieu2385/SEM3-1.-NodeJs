@@ -19,7 +19,7 @@ exports.createUser = async (req, res) => {
 exports.getUsers = async (req, res) => {
     try {
         const users = await User.find();
-        console.log('Users found:', users);
+        // console.log('Users found:', users);
         res.render('user/index', { users: users });
     } catch (err) {
         console.error('Error retrieving users:', err);

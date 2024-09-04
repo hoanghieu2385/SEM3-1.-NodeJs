@@ -60,3 +60,4 @@ các bước:
     - index.ejs
 
 Buổi 6:
+node js basic: var, let, const
