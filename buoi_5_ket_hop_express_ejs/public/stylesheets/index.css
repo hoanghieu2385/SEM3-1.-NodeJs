@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container button.btn-create {
+  margin-bottom: 20px;
+}
+
+form .form-floating {
+  width: 800px;
+}
+
+form .btn-submit {
+  margin-bottom: 20px;
+}
+
+.table{
+  max-width: 800px;
+}
+
+.table .actions {
+  width: 200px;
+}
