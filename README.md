@@ -59,5 +59,19 @@ các bước:
     - error.ejs (để hiển thị lỗi)
     - index.ejs
 
+CRUD: 
+cần ==>  npm install method-override
+
+PUT (để edit và update) và DELETE: để ghi đè vì form html chỉ có 2 phương thức là POST và GET
+
+sau khi cài lệnh xong thì cần thêm lệnh trong app.js: 
+
++ var methodOverride = require('method-override');
+
++ app.use(methodOverride('_method'));
+
+ví dụ: 
+<form action="/users/<%= user._id %>?_method=PUT" method="POST">
+
 Buổi 6:
 node js basic: var, let, const
