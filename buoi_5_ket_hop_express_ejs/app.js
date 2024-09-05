@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,6 +21,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+
+app.use(session({
+  secret: '7cf0215d13b3317105766f838e76a710', // Replace with your own secret key in https://generate-secret.vercel.app/
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Use secure: true if you're using HTTPS
+}));
+
+// Set thông báo cho toasts
+app.use((req, res, next) => {
+  res.locals.successMessage = req.session.successMessage || null;
+  res.locals.errorMessage = req.session.errorMessage || null;
+  delete req.session.successMessage;
+  delete req.session.errorMessage;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

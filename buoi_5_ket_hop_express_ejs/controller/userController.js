@@ -5,16 +5,15 @@ exports.createUser = async (req, res) => {
         const user = new User(req.body);
         await user.save();
         console.log("User created successfully: ", user);
+        req.session.successMessage = "User created successfully!";
         res.redirect('/users');
     } catch (err) {
         console.error('Error creating user:', err);
-        const users = await User.find();
-        res.status(500).render('user/index', {
-            users: users,
-            error: 'Error creating user: ' + err.message
-        });
+        req.session.errorMessage = "Error creating user: " + err.message;
+        res.redirect('/users');
     }
 };
+
 
 exports.getUsers = async (req, res) => {
     try {
@@ -35,14 +34,12 @@ exports.updateUser = async (req, res) => {
         const userId = req.params.id;
         const updatedUser = await User.findByIdAndUpdate(userId, req.body, {new: true});
         console.log('User updated:', updatedUser);
+        req.session.successMessage = "User updated successfully!";
         res.redirect('/users');
     } catch (err) {
         console.error('Error update user:', err);
-        const users = await User.find();
-        res.status(500).render('user/index', {
-            users: users,
-            error: 'Error deleting user: ' + err.message
-        });
+        req.session.errorMessage = "Error updated user: " + err.message;
+        res.redirect('/users');
     }
 }
 
@@ -51,13 +48,11 @@ exports.deleteUser = async (req, res) => {
         const userId = req.params.id;
         await User.findByIdAndDelete(userId);
         console.log('User deleted:', userId);
+        req.session.successMessage = "User deleted successfully!";
         res.redirect('/users');
     } catch (err) {
         console.error('Error deleting user:', err);
-        const users = await User.find();
-        res.status(500).render('user/index', {
-            users: users,
-            error: 'Error deleting user: ' + err.message
-        });
+        req.session.errorMessage = "Error deleted user: " + err.message;
+        res.redirect('/users');
     }
 };
