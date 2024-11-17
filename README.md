@@ -1,77 +1,122 @@
-# SEM3-2.-NodeJs
+# SEM3-2: Node.js Learning Journey
 
-Buổi 1: làm quen với node js 
+## Buổi 1: Làm quen với Node.js
+- **Tải và cài đặt Node.js**: [Download Prebuilt Installer](https://nodejs.org/en/download/prebuilt-installer)
+- **Cài đặt để chạy code trong terminal**: 
+  - Vào **Settings**, tìm kiếm **Run in terminal**, bật tùy chọn.
+- **Cài đặt Express**: 
+  ```bash
+  npm i express
+  ```
+- **Tạo template Node.js Express**: 
+  - Tùy chọn 1: 
+    ```bash
+    npx express-generator <tên_project>
+    ```
+  - Tùy chọn 2 (tạo thư mục trước): 
+    ```bash
+    cd <tên_thư_mục>
+    npx express-generator
+    ```
+  - Cài đặt dependencies:
+    ```bash
+    npm install
+    ```
+- **Chạy ứng dụng**:
+  ```bash
+  npm start
+  ```
+  Truy cập tại: [http://localhost:3000](http://localhost:3000)
 
-https://nodejs.org/en/download/prebuilt-installer
+---
 
-setup chạy code trong terminal: setting -> search: run in terminal -> tick bật 
+## Buổi 2: Kết nối MongoDB với Mongoose
+- Cài đặt Mongoose:
+  ```bash
+  npm i mongoose
+  ```
+- Sử dụng Postman để kiểm tra các phương thức **POST** và **GET**.
 
-cài express node js: nhập: npm i express
+---
 
-tạo template nodejs express ()
+## Buổi 3: Mô hình MVC
+1. **Model**: Chuyển code quản lý user từ `server.js` sang file `userModel`.
+2. **Method**: Định nghĩa các phương thức cần thiết.
+3. **Route**: Tạo các tuyến đường xử lý logic.
 
--> npx express-generator + tên (hoặc tạo thư mục sẵn xong dán lệnh vào: npx express-generator )
--> npm install
+---
 
-chạy: npm start -> sẽ chạy ở http://localhost:3000/
+## Buổi 4: Tìm hiểu về EJS (Embedded JavaScript Templating)
+- **Tạo template project với Express**:
+  ```bash
+  npx express-generator <tên_project>
+  npm install
+  ```
+- **Cài đặt EJS**:
+  ```bash
+  npm install ejs
+  ```
+- **Cấu hình view engine** trong `app.js`:
+  ```javascript
+  app.set('view engine', 'jade'); // sửa thành
+  app.set('view engine', 'ejs');
+  ```
+- **Sử dụng Bootstrap**:
+  - **Cách 1**: Thêm link CDN vào file `.ejs`.
+  - **Cách 2**: Cài trực tiếp bằng npm:
+    ```bash
+    npm install bootstrap@5.3.3
+    ```
+    - Thêm cấu hình trong `app.js`:
+      ```javascript
+      app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+      ```
 
+⚠️ **Khuyến nghị**: Nên sử dụng Bootstrap bằng link CDN để dễ quản lý.
 
-Buổi 2:
-chạy lệnh: npm i mongoose
-connect db -> post / get bằng postman
+---
 
-Buổi 3: Mô hình mvc
-b1: model: chuyển code user -> server js -> userModel
-b2: định nghĩa method
-b3: route
+## Buổi 5: Kết hợp MVC và EJS
+- **Cài đặt cần thiết**:
+  ```bash
+  npm i mongoose
+  npx express-generator
+  npm install
+  npm install ejs
+  ```
+- **Cấu hình view engine** trong `app.js`:
+  ```javascript
+  app.set('view engine', 'jade'); // sửa thành
+  app.set('view engine', 'ejs');
+  ```
+- **Tổ chức file view**:
+  - Tạo thư mục `views/user` chứa:
+    - `index.ejs` (hiển thị danh sách user).
+    - `error.ejs` (hiển thị lỗi).
 
-Buổi 4: tìm hiểu về ejs (Embedded JavaScript templating)
+### CRUD
+- Cài đặt `method-override` để hỗ trợ **PUT** và **DELETE**:
+  ```bash
+  npm install method-override
+  ```
+- Thêm cấu hình trong `app.js`:
+  ```javascript
+  var methodOverride = require('method-override');
+  app.use(methodOverride('_method'));
+  ```
+- Ví dụ form HTML với PUT:
+  ```html
+  <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+  ```
 
--> npx express-generator + tên (hoặc tạo thư mục sẵn xong dán lệnh vào: npx express-generator )
--> npm install
+---
 
-Lệnh: npm install ejs
+## Buổi 6: Node.js Basics
+- **Biến trong JavaScript**:
+  - `var`, `let`, `const` và cách sử dụng.
 
-tạo project
-cài đặt view engine (ejs)
-cấu hình chọn ejs trong app.js sửa app.set('view engine', 'jade'); ---> app.set('view engine', 'ejs');
+---
 
-dùng bootstrap: + cách 1 dùng link
-                + cách 2 sài lệnh cài thẳng vào bằng lệnh: npm install bootstrap@5.3.3
-
-nếu sài bằng cách 2 thì trong app.js cần thêm lệnh mới có thể sài được:
-app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
-
-****** NÊN SÀI BOOTSTRAP BẰNG LINK !!!!!!!!!!
-
-Buổi 5:
-Kết hợp bài học buổi 3 + 4 (làm trong file b5_ket_hop_express_ejs)
-
-cách lệnh cần thiết:
--> npm i mongoose
--> npx express-generator
--> npm install
--> npm install ejs
-
-các bước:
-+ app.js đổi    app.set('view engine', 'jade');   --->   app.set('view engine', 'ejs');
-+ tạo trong folder view 1 folder tên là user để nhét index.ejs của user tránh bị nhầm sang index chính: 
-    - error.ejs (để hiển thị lỗi)
-    - index.ejs
-
-CRUD: 
-cần ==>  npm install method-override
-
-PUT (để edit và update) và DELETE: để ghi đè vì form html chỉ có 2 phương thức là POST và GET
-
-sau khi cài lệnh xong thì cần thêm lệnh trong app.js: 
-
-+ var methodOverride = require('method-override');
-
-+ app.use(methodOverride('_method'));
-
-ví dụ: 
-<form action="/users/<%= user._id %>?_method=PUT" method="POST">
-
-Buổi 6:
-node js basic: var, let, const
+### Notes
+- **Các công cụ hỗ trợ**: Postman, MongoDB Compass.
+- **Khuyến nghị**: Đẩy file README.md này lên GitHub để dễ theo dõi.
